@@ -1,27 +1,21 @@
 package frequencies
 
 import (
-	"bufio"
 	"fmt"
-	"os"
+	"github.com/joeygibson/adventofcode2018/util"
 	"strconv"
 )
 
 func ReadFrequencies(fileName string) (freqs []int64, err error) {
-	fileHandle, err := os.Open(fileName)
+	lines, err := util.ReadValues(fileName)
 	if err != nil {
 		return
 	}
 
-	defer fileHandle.Close()
-
-	scanner := bufio.NewScanner(fileHandle)
-
-	for scanner.Scan() {
-		text := scanner.Text()
-		num, err := strconv.ParseInt(text, 10, 64)
+	for _, val := range lines {
+		num, err := strconv.ParseInt(val, 10, 64)
 		if err != nil {
-			fmt.Printf("converting %s to int64: %v\n", text, err)
+			fmt.Printf("converting %s to int64: %v\n", val, err)
 			continue
 		}
 

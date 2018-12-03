@@ -1,8 +1,6 @@
 package inventory
 
 import (
-	"bufio"
-	"os"
 	"strings"
 )
 
@@ -39,24 +37,6 @@ func ScanLabel(numberToMatch int, input string) bool {
 	}
 
 	return false
-}
-
-func ReadValues(fileName string) (input []string, err error) {
-	fileHandle, err := os.Open(fileName)
-	if err != nil {
-		return
-	}
-
-	defer fileHandle.Close()
-
-	scanner := bufio.NewScanner(fileHandle)
-
-	for scanner.Scan() {
-		text := scanner.Text()
-		input = append(input, text)
-	}
-
-	return
 }
 
 func DiffByOne(input []string) (words []string) {

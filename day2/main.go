@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/joeygibson/adventofcode2018/day2/pkg/inventory"
+	"github.com/joeygibson/adventofcode2018/util"
 	"os"
 )
 
@@ -14,7 +15,7 @@ func main() {
 
 	fileName := os.Args[1]
 
-	input, err := inventory.ReadValues(fileName)
+	input, err := util.ReadValues(fileName)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(2)
